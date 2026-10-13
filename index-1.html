@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101010">
+<title>FF MAX Sensitivity Assistant</title>
+<style>
+:root{--bg:#0b0b0d;--panel:#17171b;--panel2:#202025;--red:#f01928;--red2:#ff4652;--text:#f5f5f7;--muted:#aaaab4;--line:#303037;--green:#36d399}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -10%,#3a0b12 0,transparent 36%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}.wrap{max-width:1050px;margin:auto;padding:18px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 20px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px}.logo{display:grid;place-items:center;width:45px;height:45px;border-radius:13px;background:linear-gradient(145deg,#ff3544,#a90010);font-weight:900;font-size:19px;box-shadow:0 7px 25px #f0192838}.brand h1{font-size:17px;line-height:1.2;margin:0}.brand p{margin:4px 0 0;color:var(--red2);font-size:10px;letter-spacing:2px;font-weight:800}.pill{font-size:11px;color:#ffb4ba;border:1px solid #69222a;border-radius:99px;padding:6px 9px;white-space:nowrap}
+.hero{padding:30px 0 20px}.eyebrow{color:var(--red2);font-size:11px;letter-spacing:2px;font-weight:800}.hero h2{font-size:clamp(28px,6vw,44px);line-height:1.08;margin:8px 0 10px;max-width:680px}.hero h2 span{color:var(--red2)}.hero p{color:var(--muted);max-width:620px;margin:0}.nav{display:flex;gap:8px;overflow:auto;padding:14px 0 18px}.nav button{flex:0 0 auto;border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:10px;padding:10px 13px;font-weight:700}.nav button.active{background:var(--red);border-color:var(--red);color:white}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:linear-gradient(145deg,#19191e,#121215);border:1px solid var(--line);border-radius:17px;padding:18px;min-width:0}.card h3{margin:0 0 5px;font-size:17px}.sub{color:var(--muted);font-size:13px;margin:0 0 17px}.field{margin:14px 0}.field label{display:flex;justify-content:space-between;gap:8px;font-weight:700;font-size:13px;margin-bottom:8px}.field label span{color:var(--red2);font-variant-numeric:tabular-nums}.field input[type=range]{width:100%;accent-color:var(--red)}.field input[type=number],.field input[type=text],select{width:100%;background:#0e0e11;border:1px solid #3a3a43;border-radius:10px;padding:11px 12px;color:var(--text);outline:none}.field input:focus,select:focus{border-color:var(--red2)}.row{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:11px;padding:11px 15px;font-weight:800;background:var(--red);color:#fff}.btn:hover{background:#cf0e1b}.btn.secondary{background:#26262c;border:1px solid #41414a}.btn.ghost{background:transparent;border:1px solid var(--line)}.btn.full{width:100%}.status{font-size:12px;color:var(--green);min-height:18px;margin-top:8px}.tip{border-left:3px solid var(--red);background:#241317;padding:12px;border-radius:0 10px 10px 0;color:#e4c6c9;font-size:13px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}.stat{padding:13px;background:#111114;border:1px solid var(--line);border-radius:12px}.stat strong{display:block;font-size:22px}.stat span{color:var(--muted);font-size:11px}.checkrow{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}.checkrow:last-child{border:0}.checkrow input{accent-color:var(--red);width:18px;height:18px}.checkrow label{flex:1}.checkrow small{color:var(--muted)}.history{display:flex;flex-direction:column;gap:8px}.historyitem{display:flex;justify-content:space-between;gap:12px;padding:11px;background:#101013;border-radius:10px;border:1px solid var(--line);font-size:13px}.historyitem span{color:var(--muted)}.hidden{display:none!important}.foot{color:#888891;text-align:center;font-size:11px;padding:26px 4px 10px}.notice{margin-top:14px;padding:12px;border:1px solid #51333a;border-radius:12px;color:#c5b6b9;font-size:12px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.wrap{padding:14px}.hero{padding-top:24px}.pill{display:none}.stats{gap:7px}.stat{padding:10px}.stat strong{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand"><div class="logo">FF</div><div><h1>FF MAX Sensitivity Assistant</h1><p>PERSONAL SETTINGS • PRACTICE • PROGRESS</p></div></div>
+  <div class="pill">UNOFFICIAL FAN TOOL</div>
+</header>
+<section class="hero">
+  <div class="eyebrow">YOUR SETTINGS. YOUR STYLE.</div>
+  <h2>Dial in your aim.<br><span>Practice with purpose.</span></h2>
+  <p>Keep your own sensitivity settings, track practice sessions, and build a consistent routine. No hacks, no game modifications—just a handy companion.</p>
+</section>
+<nav class="nav" aria-label="Sections">
+  <button class="active" data-tab="settings">Sensitivity</button><button data-tab="practice">Practice Tracker</button><button data-tab="tips">Tips & Help</button>
+</nav>
+
+<section id="settings" class="tab">
+  <div class="grid">
+    <div class="card">
+      <h3>My sensitivity settings</h3><p class="sub">Enter the values you currently use in-game.</p>
+      <div class="field"><label for="device">Device / phone name</label><input id="device" type="text" value="OPPO K12x 5G" maxlength="50"></div>
+      <div class="field"><label for="dpi">DPI (optional)</label><input id="dpi" type="number" min="100" max="1000" value="460"></div>
+      <div id="sliders"></div>
+      <div class="row"><button class="btn" id="save">Save settings</button><button class="btn secondary" id="reset">Reset values</button></div>
+      <div class="status" id="saveStatus" role="status"></div>
+    </div>
+    <div class="card">
+      <h3>Quick overview</h3><p class="sub">A snapshot of your current setup.</p>
+      <div class="stats"><div class="stat"><strong id="statCount">6</strong><span>Settings</span></div><div class="stat"><strong id="statDpi">460</strong><span>DPI entered</span></div><div class="stat"><strong id="statPractice">0</strong><span>Sessions logged</span></div></div>
+      <div class="field"><label for="preset">Personal starting point</label><select id="preset"><option value="">Choose a sample preset</option><option value="balanced">Balanced starter (sample)</option><option value="drag">Drag practice (sample)</option><option value="scope">Scope-focused (sample)</option></select></div>
+      <button class="btn secondary full" id="applyPreset">Load sample values</button>
+      <p class="sub" style="margin-top:12px">Presets are editable examples, not guaranteed headshot settings. Tune gradually in Training Ground.</p>
+      <div class="tip">Tip: change one setting at a time, then test several shots before deciding whether it helped.</div>
+    </div>
+  </div>
+  <div class="notice">Your settings are stored locally in this browser on this device. Clearing browser site data may erase them. This website is not affiliated with or endorsed by Garena.</div>
+</section>
+
+<section id="practice" class="tab hidden">
+  <div class="grid">
+    <div class="card">
+      <h3>Today's practice</h3><p class="sub">Tick off what you complete. Your checklist is saved on this device.</p>
+      <div id="checklist">
+        <div class="checkrow"><input type="checkbox" id="c1"><label for="c1">Warm-up in Training Ground</label><small>5 min</small></div>
+        <div class="checkrow"><input type="checkbox" id="c2"><label for="c2">Desert Eagle aim practice</label><small>5 min</small></div>
+        <div class="checkrow"><input type="checkbox" id="c3"><label for="c3">Shotgun close-range practice</label><small>5 min</small></div>
+        <div class="checkrow"><input type="checkbox" id="c4"><label for="c4">Review misses and adjust aim</label><small>5 min</small></div>
+      </div>
+      <div class="field"><label for="minutes">Practice minutes completed</label><input id="minutes" type="number" min="0" max="600" value="20"></div>
+      <button class="btn full" id="logPractice">Log practice session</button><div class="status" id="practiceStatus" role="status"></div>
+    </div>
+    <div class="card">
+      <h3>Practice history</h3><p class="sub">Recent sessions saved in your browser.</p>
+      <div class="stats"><div class="stat"><strong id="totalSessions">0</strong><span>Sessions</span></div><div class="stat"><strong id="totalMinutes">0</strong><span>Total minutes</span></div><div class="stat"><strong id="tasksDone">0/4</strong><span>Today's tasks</span></div></div>
+      <div class="history" id="history"><p class="sub">No sessions yet. Log your first practice above.</p></div>
+      <div style="margin-top:14px"><button class="btn ghost" id="clearHistory">Clear history</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="tips" class="tab hidden">
+  <div class="grid">
+    <div class="card"><h3>Find your control</h3><p class="sub">Use this simple testing loop.</p>
+      <div class="checkrow"><span>01</span><label>Start with your current settings</label></div>
+      <div class="checkrow"><span>02</span><label>Practice with one weapon at a time</label></div>
+      <div class="checkrow"><span>03</span><label>If aim passes above the target, test a small decrease</label></div>
+      <div class="checkrow"><span>04</span><label>If aim stops below the target, test a small increase</label></div>
+      <div class="checkrow"><span>05</span><label>Repeat before changing another slider</label></div>
+    </div>
+    <div class="card"><h3>Quick help</h3>
+      <p><b>General:</b> overall camera movement and turning.</p>
+      <p><b>Red Dot / 2X / 4X:</b> sensitivity while aiming with those sights.</p>
+      <p><b>Sniper Scope:</b> sensitivity for sniper scope aiming. Start with a comfortable value and test it in Training Ground.</p>
+      <p><b>Free Look:</b> looking around without changing your aim direction.</p>
+      <div class="tip">Sensitivity depends on touch response, HUD, FPS, weapon and personal control. There is no single value that guarantees headshots.</div>
+      <p class="sub" style="margin-top:14px">This companion only stores settings and practice notes. It does not connect to Free Fire MAX or modify game files.</p>
+    </div>
+  </div>
+</section>
+<footer class="foot">FF MAX Sensitivity Assistant • Fan-made companion • Not affiliated with Garena</footer>
+</div>
+<script>
+const defaults={general:155,redDot:100,twoX:100,fourX:45,sniperScope:95,freeLook:183};
+const labels=[["general","General"],["redDot","Red Dot"],["twoX","2X Scope"],["fourX","4X Scope"],["sniperScope","Sniper Scope"],["freeLook","Free Look"]];
+const $=id=>document.getElementById(id);
+function read(key,fallback){try{const v=localStorage.getItem(key);return v===null?fallback:JSON.parse(v)}catch(e){return fallback}}
+function write(key,val){try{localStorage.setItem(key,JSON.stringify(val));return true}catch(e){return false}}
+function makeSliders(values=defaults){
+  $("sliders").innerHTML=labels.map(([key,label])=>`<div class="field"><label for="${key}">${label}<span id="${key}Value">${values[key]??defaults[key]}</span></label><input id="${key}" type="range" min="0" max="200" value="${values[key]??defaults[key]}" aria-label="${label} sensitivity"></div>`).join("");
+  labels.forEach(([key])=>$(key).addEventListener("input",()=>{$(key+"Value").textContent=$(key).value;updateOverview()}));
+}
+function getSettings(){const obj={device:$("device").value.trim(),dpi:Math.max(100,Math.min(1000,Number($("dpi").value)||460))};labels.forEach(([k])=>obj[k]=Number($(k).value));return obj}
+function updateOverview(){const s=getSettings();$("statDpi").textContent=s.dpi}
+function loadSettings(){const saved=read("ffmax-settings",null);if(saved){$("device").value=saved.device||"OPPO K12x 5G";$("dpi").value=saved.dpi||460;makeSliders(saved)}else makeSliders();updateOverview()}
+$("save").addEventListener("click",()=>{const ok=write("ffmax-settings",getSettings());$("saveStatus").textContent=ok?"Settings saved on this device.":"Browser storage unavailable; settings could not be saved."});
+$("reset").addEventListener("click",()=>{makeSliders(defaults);$("saveStatus").textContent="Default sample values loaded. Tap Save settings to keep them.";updateOverview()});
+$("applyPreset").addEventListener("click",()=>{const presets={balanced:{general:150,redDot:120,twoX:110,fourX:90,sniperScope:95,freeLook:130},drag:{general:170,redDot:145,twoX:125,fourX:100,sniperScope:105,freeLook:150},scope:{general:135,redDot:105,twoX:120,fourX:110,sniperScope:120,freeLook:120}};const p=presets[$("preset").value];if(!p){$("saveStatus").textContent="Choose a sample preset first.";return}makeSliders(p);$("saveStatus").textContent="Sample loaded. Test it and save if you want.";updateOverview()});
+function getHistory(){return read("ffmax-history",[])}
+function renderHistory(){const h=getHistory();$("statPractice").textContent=h.length;$("totalSessions").textContent=h.length;$("totalMinutes").textContent=h.reduce((a,b)=>a+b.minutes,0);$("history").innerHTML=h.length?h.slice().reverse().slice(0,8).map(x=>`<div class="historyitem"><div><b>${escapeHTML(x.date)}</b><br><span>${x.tasks}/4 tasks completed</span></div><b>${x.minutes} min</b></div>`).join(""):'<p class="sub">No sessions yet. Log your first practice above.</p>';$("tasksDone").textContent=[1,2,3,4].filter(n=>$("c"+n).checked).length+"/4"}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+[1,2,3,4].forEach(n=>{const saved=read("ffmax-check-"+n,false);$("c"+n).checked=saved;$("c"+n).addEventListener("change",()=>{write("ffmax-check-"+n,$("c"+n).checked);renderHistory()})});
+$("logPractice").addEventListener("click",()=>{const minutes=Math.max(0,Math.min(600,Number($("minutes").value)||0));const tasks=[1,2,3,4].filter(n=>$("c"+n).checked).length;const h=getHistory();h.push({date:new Date().toLocaleDateString(),minutes,tasks});const ok=write("ffmax-history",h);$("practiceStatus").textContent=ok?"Practice session logged!":"Could not save session in this browser.";renderHistory()});
+$("clearHistory").addEventListener("click",()=>{if(confirm("Clear all saved practice history?")){write("ffmax-history",[]);renderHistory()}});
+document.querySelectorAll("[data-tab]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("[data-tab]").forEach(b=>b.classList.toggle("active",b===btn));document.querySelectorAll(".tab").forEach(s=>s.classList.toggle("hidden",s.id!==btn.dataset.tab))}));
+loadSettings();renderHistory();
+</script>
+</body>
+</html>
